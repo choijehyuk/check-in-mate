@@ -1,12 +1,12 @@
 <template>
   <div class="row justify-content-center">
-    <!-- 여행정보 공유 게시판 수정 제목 시작 -->
+    <!-- 동행모집 게시판 수정 제목 시작 -->
     <div class="col-lg-8 col-md-10 col-sm-12">
       <h2 class="my-3 py-3 shadow-sm bg-light text-center">
         <span class="bg-light">글수정</span>
       </h2>
     </div>
-    <!-- 여행정보 공유 게시판 수정 제목 끝 -->
+    <!-- 동행모집 게시판 수정 제목 끝 -->
     <div class="col-lg-8 col-md-10 col-sm-12">
       <!-- 제목 입력 시작 -->
       <div class="mb-3">

@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <!-- 여행정보 공유 게시판 제목 시작 -->
+    <!-- 동행모집 게시판 제목 시작 -->
     <div class="col-lg-8 col-md-10 col-sm-12">
       <h2 class="my-3 py-2 text-center">
         <span class="bg-light">동행 모집</span>
@@ -44,11 +44,12 @@
       </div>
       <!-- 검색하기 끝 -->
     </div>
-    <!-- 여행정보 공유 게시판 제목 끝 -->
+    <!-- 동행모집 게시판 제목 끝 -->
     <div class="col-lg-8 col-md-10 col-sm-12">
       <div class="row align-self-center mb-2">
         <!-- 글쓰기 앵커 시작 -->
         <div class="col-md-12" style="text-align: end">
+          <!-- 로그인 되어있을때만 작성가능 -->
           <a @click="moveWrite" style="cursor: pointer" v-if="userInfo">
             글쓰기
           </a>
@@ -150,28 +151,7 @@ export default {
     },
   },
 
-  // 리스트 가져오기
-  // created() {
-  //   fetch("http://127.0.0.1:9018/board/api/list")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log("respone >>" + this.response);
-  //       console.log("data>> " + data);
-  //       this.articles = data;
-  //       this.allArticles = data;
-  //       this.displayedArticles = data;
-  //       console.log("list data" + data);
-  //       console.log("articles fetcharticles >>>>>>>" + this.articles);
-  //       console.log(
-  //         "displayedArticles fetcharticles >>>>>>>" + this.displayedArticles
-  //       );
-  //     });
-  //   console.log("동행찾기 데이터 : >>> " + this.$route.query.searchKeyword);
-  //   const searchMateword = this.$route.query.searchKeyword;
-  //   if (searchMateword) {
-  //     this.searchMate();
-  //   }
-  // },
+  // 글 목록 리스트 가져오기
   async created() {
     try {
       const response = await fetch("http://127.0.0.1:9018/board/api/list");

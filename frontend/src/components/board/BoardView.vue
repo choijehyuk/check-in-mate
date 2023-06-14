@@ -1,19 +1,9 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <!-- 글보기 제목 시작 -->
-      <!-- <div class="col-lg-8 col-md-10 col-sm-12">
-        <h2 class="my-3 py-3 shadow-sm bg-light text-center">
-          <span class="bg-light">글보기</span>
-        </h2>
-      </div> -->
-      <!-- 글보기 제목 끝 -->
       <!-- 글번호, 제목 시작 -->
       <div class="col-lg-8 col-md-10 col-sm-12">
         <div class="row my-2">
-          <!-- <div class="col-1">
-            <h2 class="text-secondary">{{ article.articleNo }}.</h2>
-          </div> -->
           <div class="col-11">
             <h2 class="text-secondary">{{ article.title }}</h2>
           </div>
@@ -104,7 +94,7 @@
                   </div>
                 </div>
               </div>
-              <!-- 댓글 등록 -->
+              <!-- 댓글 등록 시작-->
               <br />
               <div class="d-flex justify-content-between">
                 <textarea
@@ -168,6 +158,7 @@ export default {
     this.getComment();
   },
   methods: {
+    // 글 내용 가져오기
     getArticle() {
       // 비동기
       // TODO : 글번호에 해당하는 글정보 얻기.
@@ -280,6 +271,8 @@ export default {
       });
       //   this.$router.push({ path: `/board/modify/${this.article.articleno}` });
     },
+
+    // 글 삭제하기
     deleteArticle() {
       fetch(
         `http://127.0.0.1:9018/board/api/delete/${this.$route.params.articleNo}`,

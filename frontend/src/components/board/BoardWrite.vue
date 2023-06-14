@@ -1,4 +1,5 @@
 <template>
+  <!-- 글쓰기 모달 제목  시작 -->
   <b-modal
     ref="boardwrite-modal"
     v-model="showBoardWriteModal"
@@ -6,6 +7,8 @@
     title="동행 글쓰기"
     hide-footer
   >
+    <!-- 글쓰기 모달 제목  끝 -->
+    <!-- 글쓰기 내용 입력 시작  -->
     <div class="modal-body">
       <div class="row mb-1 text-center">
         <div class="col-4">제목</div>
@@ -97,6 +100,9 @@
         </div>
       </div>
     </div>
+    <!-- 글쓰기 내용 입력 끝  -->
+
+    <!-- 글쓰기 하단 버튼 시작 -->
     <div class="modal-footer">
       <b-button
         id="btn-join"
@@ -109,6 +115,7 @@
         >취소</b-button
       >
     </div>
+    <!-- 글쓰기 하단 버튼 끝 -->
   </b-modal>
 </template>
 
@@ -148,6 +155,8 @@ export default {
     hideModal() {
       this.$refs["boardwrite-modal"].hide();
     },
+
+    // 글 등록하기
     registArticle() {
       if (
         !this.join_mate_title ||

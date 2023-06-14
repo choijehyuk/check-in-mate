@@ -33,16 +33,21 @@ export default {
     },
   },
   methods: {
+    // 이전 페이지 이동
     previousPage() {
       if (this.currentPage > 1) {
         this.$emit("page-change", this.currentPage - 1);
       }
     },
+
+    //다음 페이지 이동
     nextPage() {
       if (this.currentPage < this.totalPages) {
         this.$emit("page-change", this.currentPage + 1);
       }
     },
+
+    // 선택된 페이지 이동
     goToPage(pageNumber) {
       console.log(pageNumber);
       if (pageNumber >= 1 && pageNumber <= this.totalPages) {

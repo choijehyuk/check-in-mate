@@ -1,15 +1,3 @@
-<!-- 
-    목록 뽑아내는 컴포넌트이다
-    row1
-        MY TRIP PLAN
-    row2
-        검색창
-    row3
-        col1 게시물1
-        col2 게시물2
-        col3 게시물3
--->
-
 <template>
   <div class="row justify-content-center">
     <!-- 여행정보 공유 게시판 제목 시작 -->
@@ -26,7 +14,7 @@
           <router-link
             to="/myplan/write"
             style="cursor: pointer"
-            v-if="userInfo"
+            v-if="userInfo" class="board-subject"
             >등록하기</router-link
           >
         </div>
@@ -70,11 +58,7 @@ export default {
     fetch("http://127.0.0.1:9018/plan/list")
       .then((response) => response.json())
       .then((data) => {
-        console.log("response >>" + this.response);
-        console.log("data >>>" + data);
         this.articles = data;
-        console.log(this.articles);
-        console.log("list data" + data);
       });
   },
 };

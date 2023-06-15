@@ -44,8 +44,6 @@ public interface BoardMapper {
 
 	// 글 삭제
 	void deleteArticle(int articleNo) throws SQLException;
-
-	//List<FileInfoDto> fileInfoList(int articleNo) throws Exception;
 	
 	// 댓글작성
 	void insertComment(CommentDto commentdto);

@@ -40,17 +40,6 @@ public class HotplaceServiceImpl implements HotplaceService{
 	@Override
 	public List<HotplaceDto> listArticle(Map<String, String> map) throws Exception {
 		Map<String, Object> param = new HashMap<String, Object>();
-//		String key = map.get("key");
-		System.out.println(map);
-		System.out.println(param);
-//		if("userid".equals(key))
-//			key = "user_id";
-//		param.put("key", key == null ? "" : key);
-//		param.put("word", map.get("word") == null ? "" : map.get("word"));
-//		int pgNo = Integer.parseInt(map.get("pgno") == null ? "1" : map.get("pgno"));
-//		int start = pgNo * SizeConstant.LIST_SIZE - SizeConstant.LIST_SIZE;
-//		param.put("start", start);
-//		param.put("listsize", SizeConstant.LIST_SIZE);
 		return hotplaceMapper.listArticle(param);
 	}
 

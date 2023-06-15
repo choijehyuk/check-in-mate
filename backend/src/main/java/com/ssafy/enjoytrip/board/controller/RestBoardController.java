@@ -69,31 +69,12 @@ public class RestBoardController {
 	}
 
 	// 여행정보 공유 리스트 출력
-	// REST로 구현 , 페이징처리는 어떻게 해야되는지 더 알아보기
 	@GetMapping("/list")
 	public List<BoardDto> list(@RequestParam Map<String, String> map) throws Exception {
 		return boardService.listArticle(map);
 	}
 
-//	// 글쓰기 페이지로 이동 
-//	@RequestMapping(value = "/write", method = RequestMethod.GET)
-//	public ResponseEntity<String> write(@RequestParam Map<String, String> map, Model model ,HttpServletRequest request, HttpServletResponse response) {
-//		HttpSession session = request.getSession();
-//		MemberDto memberDto = (MemberDto) session.getAttribute("userinfo");
-//		if(memberDto != null) {			
-//			model.addAttribute("pgno", map.get("pgno"));
-//			model.addAttribute("key", map.get("key"));
-//			model.addAttribute("word", map.get("word"));
-//			return ResponseEntity.ok("글쓰기로 이동 완료");
-//		}
-//		else {
-//			request.setAttribute("msg", "로그인 후 이용이 가능합니다. ");
-//			return null;
-//		}
-//	}
-
 	// 여행정보 공유 글쓰기
-	// REST로 구현완료
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> write(@RequestBody BoardDto boardDto) throws Exception {
 		ResponseEntity<Map<String, Object>> resEntity = null;
@@ -114,12 +95,8 @@ public class RestBoardController {
 	}
 
 	// 여행정보 공유 글보기 ( articleNo로 비교 )
-	// REST로 구현완료
 	@RequestMapping(value = "/view/{articleNo}", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> view(@PathVariable("articleNo") int articleNo) throws Exception {
-//		boardService.getArticle(articleNo);
-//		boardService.updateHit(articleNo);
-//		return ResponseEntity.ok("글 보기 ");
 		ResponseEntity<Map<String, Object>> resEntity = null;
 		BoardDto boardDto = null;
 		try {
@@ -142,11 +119,9 @@ public class RestBoardController {
 	}
 
 	// 여행정보 공유 글 수정하기로 이동
-	// REST로 구현완료
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public ResponseEntity<String> modify(@RequestParam("articleno") int articleNo,
 			@RequestParam Map<String, String> map, Model model) throws Exception {
-		// logger.debug("modify articleNo : {}", articleNo);
 		BoardDto boardDto = boardService.getArticle(articleNo);
 		model.addAttribute("board", boardDto);
 		model.addAttribute("pgno", map.get("pgno"));
@@ -156,15 +131,8 @@ public class RestBoardController {
 	}
 
 	// 여행정보 공유 글 수정하기
-	// REST로 구현완료
 	@RequestMapping(value = "/modify", method = RequestMethod.PUT)
 	public ResponseEntity<Map<String, Object>> modify(@RequestBody BoardDto boardDto) throws Exception {
-		System.out.println("dsfsdfdsfdsfdsfsdfsd");
-		// logger.debug("modify boardDto : {}", boardDto);
-//		redirectAttributes.addAttribute("pgno", map.get("pgno"));
-//		redirectAttributes.addAttribute("key", map.get("key"));
-//		redirectAttributes.addAttribute("word", map.get("word"));
-//		return ResponseEntity.ok("수정완료");
 		ResponseEntity<Map<String, Object>> resEntity = null;
 		try {
 			boardService.modifyArticle(boardDto);
@@ -181,7 +149,6 @@ public class RestBoardController {
 	}
 
 	// 여행정보 공유 글 삭제하기
-	// REST로 구현완료
 	@RequestMapping(value = "/delete/{articleNo}", method = RequestMethod.DELETE)
 	public ResponseEntity<Map<String, Object>> delete(@PathVariable("articleNo") int articleNo,
 			RedirectAttributes redirectAttributes) throws Exception {

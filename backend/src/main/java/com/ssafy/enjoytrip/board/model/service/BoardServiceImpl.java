@@ -36,11 +36,6 @@ public class BoardServiceImpl implements BoardService {
 		System.out.println("글입력 전 dto : " + boardDto);
 		boardMapper.writeArticle(boardDto);
 		System.out.println("글입력 후 dto : " + boardDto);
-		// 파일부분 주석
-//		List<FileInfoDto> fileInfos = boardDto.getFileInfos();
-//		if (fileInfos != null && !fileInfos.isEmpty()) {
-//			boardMapper.registerFile(boardDto);
-//		}		
 	}
 
 	// 여행정보 공유 목록 출력
@@ -121,14 +116,7 @@ public class BoardServiceImpl implements BoardService {
 	// 글 삭제
 	@Override
 	public void deleteArticle(int articleNo) throws Exception {
-		//List<FileInfoDto> fileList = boardMapper.fileInfoList(articleNo);
-		//boardMapper.deleteFile(articleNo);
 		boardMapper.deleteArticle(articleNo);
-//		for(FileInfoDto fileInfoDto : fileList) {
-//			File file = new File(path + File.separator + fileInfoDto.getSaveFolder() + File.separator + fileInfoDto.getSaveFile());
-//			file.delete();
-//		}
-		
 	}
 
 	// 미구현

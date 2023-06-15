@@ -46,11 +46,4 @@ public class BoardCommentController {
 		return boardService.listComment(commentDto.getArticleNo());
 	}
 	
-//	// 댓글쓰기
-//	@PostMapping
-//	public List<CommentDto> writeComment(@RequestParam("commentNo") int commentNo , @RequestParam("articleNo") int articleNo, @RequestParam("userId") String userId, @RequestParam("parentId") String parentId, @RequestParam("content") String content, @RequestParam("registerTime") String registerTime) {
-//		boardService.writeComment(commentDto);
-//		boardService.upCommentCnt(articleNo);
-//		return boardService.listComment(commentDto.getArticleNo());
-//	}
 }

@@ -152,9 +152,6 @@ public class HotplaceController {
 	@RequestMapping(value = "/delete/{articleno}", method = RequestMethod.DELETE)
 	public ResponseEntity<Map<String, Object>> delete(@PathVariable("articleno") int articleno,
 			RedirectAttributes redirectAttributes) throws Exception {
-//		//logger.debug("delete articleNo : {}", articleNo);
-//		hotplaceService.DeleteArticle(articleno, uploadPath);
-//		return ResponseEntity.ok("삭제완료");
 		System.out.println("delete controller >>>>>>>>>>>>>>>>" + articleno);
 		ResponseEntity<Map<String, Object>> resEntity = null;
 		try {
